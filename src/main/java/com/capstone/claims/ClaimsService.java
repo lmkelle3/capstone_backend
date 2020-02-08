@@ -22,8 +22,21 @@ public class ClaimsService {
         return claimsRepository.findAll();
     }
 
-    public Optional <Claim> getOneContact(int id) {
+    public Optional <Claim> getOneClaim(int id) {
         return claimsRepository.findById(id);
+    }
+
+    public Claim addOneClaim(Claim newClaim) {
+        return claimsRepository.save(newClaim);
+    }
+
+    public Claim updateOneClaim(Claim updatedClaim) {
+        return claimsRepository.save(updatedClaim);
+    }
+
+    public String removeOneClaim(int id) {
+        claimsRepository.deleteById(id);
+        return "Id " + id + " was removed";
     }
 
 }
