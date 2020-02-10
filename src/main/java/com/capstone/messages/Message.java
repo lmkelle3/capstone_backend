@@ -24,6 +24,9 @@ public class Message {
     @Column
     private String messageBody;
 
+    @Column
+    private String createdAt;
+
     public int getId() {
         return id;
     }
@@ -33,10 +36,16 @@ public class Message {
     }
 
     public int getClaimId(){
+
         return claimId;
     }
 
     public String getMessageBody() {
+
         return messageBody;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
     }
 }

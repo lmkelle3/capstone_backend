@@ -26,4 +26,17 @@ public class MessagesService {
         return messagesRepository.findById(id);
     }
 
+    public Message addOneMessage(Message newMessage) {
+        return messagesRepository.save(newMessage);
+    }
+
+    public Message updateOneMessage(Message updatedMessage) {
+        return messagesRepository.save(updatedMessage);
+    }
+
+    public String removeOneMessage(int id) {
+        messagesRepository.deleteById(id);
+        return "Id " + id + " was removed";
+    }
+
 }

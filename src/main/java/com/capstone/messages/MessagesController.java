@@ -2,9 +2,7 @@ package com.capstone.messages;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +20,17 @@ public class MessagesController {
     @GetMapping
     public List<Message> getAllMessages(){
         return this.messagesService.getAllMessages();
+    }
+
+    @GetMapping("/{id}")
+    public Message getOneMessage(@PathVariable int id) {
+        Message message = messagesService.getOneMessage(id).orElseThrow(IllegalArgumentException::new);
+        return message;
+    }
+
+    @PostMapping
+    public Message addOneMessage(@RequestBody Message newMessage) {
+
     }
 
 }
