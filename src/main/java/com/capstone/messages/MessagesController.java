@@ -30,7 +30,22 @@ public class MessagesController {
 
     @PostMapping
     public Message addOneMessage(@RequestBody Message newMessage) {
+        if(newMessage.getMessageBody() == null) {
+            throw new IllegalArgumentException("Please type a message before sending");
+        }
+        return messagesService.addOneMessage(newMessage);
+    }
 
+    @PatchMapping
+    public Message updateOneMessage(@RequestBody Message updatedMessage) {
+        Message message = messagesService.getOneMessage(updatedMessage.getId()).orElseThrow(IllegalArgumentException::new);
+        return messagesService.updateOneMessage(updatedMessage);
+    }
+
+    @DeleteMapping("/{id}")
+    public String removeOneMessage(@PathVariable int id) {
+        Message message = messagesService.getOneMessage(id).orElseThrow(IllegalArgumentException::new);
+        return messagesService.removeOneMessage(id);
     }
 
 }
