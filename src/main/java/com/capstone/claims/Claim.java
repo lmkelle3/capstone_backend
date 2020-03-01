@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+import java.util.Date;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -11,7 +13,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Data
 
 public class Claim {
-    public Claim(){}
+    public Claim() {
+    }
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -24,84 +27,171 @@ public class Claim {
     private String lossCategory;
 
     @Column
-    private String lossDescription;
+    private String lossType;
 
     @Column
-    private String DOL;
+    private String claimDetails;
+
+    @Column
+    private java.util.Date claimDate;
 
     @Column
     private String policyType;
 
     @Column
-    private String itemType;
+    private boolean scheduled;
+
+    @Column
+    private boolean unscheduled;
+
+    @Column
+    private boolean other;
 
     @Column
     private String jurisdiction;
 
     @Column
-    private String caseNumber;
+    private int caseNumber;
 
     @Column
-    private String dateFiled;
+    private java.util.Date reportDate;
 
     @Column
-    private String havePR;
+    private boolean noPr;
 
     @Column
-    private String claimValue;
+    private double price;
+
 
     @Column
-    private int paymentPreference;
+    private String payInfo;
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getUserId() {
         return userId;
     }
 
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public String getLossCategory() {
         return lossCategory;
-    };
+    }
 
-    public String getLossDescription() {
-        return lossDescription;
-    };
+    public void setLossCategory(String lossCategory) {
+        this.lossCategory = lossCategory;
+    }
 
-    public String getDOL() {
-        return DOL;
-    };
+    public String getLossType() {
+        return lossType;
+    }
+
+    public void setLossType(String lossType) {
+        this.lossType = lossType;
+    }
+
+    public String getClaimDetails() {
+        return claimDetails;
+    }
+
+    public void setClaimDetails(String claimDetails) {
+        this.claimDetails = claimDetails;
+    }
+
+    public Date getClaimDate() {
+        return claimDate;
+    }
+
+    public void setClaimDate(Date claimDate) {
+        this.claimDate = claimDate;
+    }
 
     public String getPolicyType() {
         return policyType;
-    };
+    }
 
-    public String getItemType() {
-        return itemType;
+    public void setPolicyType(String policyType) {
+        this.policyType = policyType;
+    }
+
+    public boolean isScheduled() {
+        return scheduled;
+    }
+
+    public void setScheduled(boolean scheduled) {
+        this.scheduled = scheduled;
+    }
+
+    public boolean isUnscheduled() {
+        return unscheduled;
+    }
+
+    public void setUnscheduled(boolean unscheduled) {
+        this.unscheduled = unscheduled;
+    }
+
+    public boolean isOther() {
+        return other;
+    }
+
+    public void setOther(boolean other) {
+        this.other = other;
     }
 
     public String getJurisdiction() {
         return jurisdiction;
     }
 
-    public String getCaseNumber() {
+    public void setJurisdiction(String jurisdiction) {
+        this.jurisdiction = jurisdiction;
+    }
+
+    public int getCaseNumber() {
         return caseNumber;
     }
 
-    public String getDateFiled() {
-        return dateFiled;
+    public void setCaseNumber(int caseNumber) {
+        this.caseNumber = caseNumber;
     }
 
-    public String getHavePR() {
-        return havePR;
+    public Date getReportDate() {
+        return reportDate;
     }
 
-    public String getClaimValue() {
-        return claimValue;
+    public void setReportDate(Date reportDate) {
+        this.reportDate = reportDate;
     }
 
-    public int getPaymentPreference() {
-        return paymentPreference;
+    public boolean isNoPr() {
+        return noPr;
     }
+
+    public void setNoPr(boolean noPr) {
+        this.noPr = noPr;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getPayInfo() {
+        return payInfo;
+    }
+
+    public void setPayInfo(String payInfo) {
+        this.payInfo = payInfo;
+    }
+
 }

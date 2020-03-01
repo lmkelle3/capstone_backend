@@ -14,15 +14,15 @@ public class ClaimsService {
     @Autowired
     private final ClaimsRepository claimsRepository;
 
-    public ClaimsService (ClaimsRepository claimsRepository){
+    public ClaimsService(ClaimsRepository claimsRepository) {
         this.claimsRepository = claimsRepository;
     }
 
-    public List<Claim> getAllClaims(){
+    public List<Claim> getAllClaims() {
         return claimsRepository.findAll();
     }
 
-    public Optional <Claim> getOneClaim(int id) {
+    public Optional<Claim> getOneClaim(int id) {
         return claimsRepository.findById(id);
     }
 
@@ -32,5 +32,10 @@ public class ClaimsService {
 
     public Claim updateOneClaim(Claim updatedClaim) {
         return claimsRepository.save(updatedClaim);
+    }
+
+    public String removeOneClaim(int id) {
+        claimsRepository.deleteById(id);
+        return "ID " + id + " was removed.";
     }
 }
