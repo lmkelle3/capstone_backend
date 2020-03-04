@@ -9,7 +9,7 @@ import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-import com.capstone.messages.Message
+import com.capstone.messages.Message;
 
 @Entity
 @Table(name="claims")
