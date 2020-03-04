@@ -1,5 +1,6 @@
 package com.capstone.claims;
 
+import com.capstone.payments.Payment;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,6 +8,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
+
+import com.capstone.messages.Message
 
 @Entity
 @Table(name="claims")
@@ -62,9 +65,18 @@ public class Claim {
     @Column
     private double price;
 
-
     @Column
     private String payInfo;
+
+    //Many Messages per Claim
+    @ManyToOne
+    private Message message;
+
+    //Many Payments per Claim
+    @ManyToOne
+    private Payment payment;
+
+
 
     public int getId() {
         return id;
@@ -194,4 +206,19 @@ public class Claim {
         this.payInfo = payInfo;
     }
 
+    public Message getMessage() {
+        return message;
+    }
+
+    public void setMessage(Message message) {
+        this.message = message;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
 }
