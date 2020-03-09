@@ -66,10 +66,4 @@ public class ClaimsController {
         return claimsService.removeOneClaim(id);
     }
 
-
-//    @DeleteMapping("/{id}")
-//    public String deleteClaim(@PathVariable int id){
-//        Claim claim = claimsService.getOneClaim(id).orElseThrow(IllegalArgumentException::new);
-//        return claimsService.deleteClaim(id);
-//    }
 }
