@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/claims")
 
@@ -40,7 +41,7 @@ public class ClaimsController {
     }
 
     @PostMapping
-    public Claim addOneClaim(@RequestBody Claim newClaim, @PathVariable int paymentId) {
+    public Claim addOneClaim(@RequestBody Claim newClaim) {
 
 //        Message message = messagesService.getOneMessage(messageId).orElseThrow(IllegalArgumentException::new);
 //        newClaim.setMessage(message);
@@ -60,8 +61,15 @@ public class ClaimsController {
         return claimsService.updateOneClaim(updatedClaim);
     }
 
-    @DeleteMapping("/{id")
+    @DeleteMapping("/{id}")
     public String removeOneClaim(@PathVariable int id) {
         return claimsService.removeOneClaim(id);
     }
+
+
+//    @DeleteMapping("/{id}")
+//    public String deleteClaim(@PathVariable int id){
+//        Claim claim = claimsService.getOneClaim(id).orElseThrow(IllegalArgumentException::new);
+//        return claimsService.deleteClaim(id);
+//    }
 }
