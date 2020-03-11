@@ -4,7 +4,6 @@ package com.capstone.claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +29,7 @@ public class ClaimsService {
         return claimsRepository.save(newClaim);
     }
 
-    public Claim updateOneClaim(Claim updatedClaim) {
+    public Claim updateClaim(Claim updatedClaim) {
         return claimsRepository.save(updatedClaim);
     }
 

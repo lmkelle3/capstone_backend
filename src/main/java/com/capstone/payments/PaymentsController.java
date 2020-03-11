@@ -1,7 +1,7 @@
 package com.capstone.payments;
 
-import com.capstone.messages.Message;
-import com.capstone.messages.MessagesService;
+//import com.capstone.messages.Message;
+//import com.capstone.messages.MessagesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

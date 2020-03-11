@@ -9,7 +9,7 @@ import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-import com.capstone.messages.Message;
+//import com.capstone.messages.Message;
 
 @Entity
 @Table(name="claims")
@@ -68,13 +68,9 @@ public class Claim {
     @Column
     private String payInfo;
 
-    //Many Messages per Claim
-    @ManyToOne
-    private Message message;
-
-    //Many Payments per Claim
-    @ManyToOne
-    private Payment payment;
+//
+//    @Column
+//    private int message_id;
 
 
 
@@ -206,19 +202,13 @@ public class Claim {
         this.payInfo = payInfo;
     }
 
-    public Message getMessage() {
-        return message;
-    }
+//    public int getMessage_id() {
+//        return message_id;
+//    }
+//
+//    public void setMessage_id(int message_id) {
+//        this.message_id = message_id;
+//    }
 
-    public void setMessage(Message message) {
-        this.message = message;
-    }
 
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
 }

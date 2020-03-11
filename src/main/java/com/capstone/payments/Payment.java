@@ -26,6 +26,9 @@ public class Payment {
         @Column
         private double paymentAmount;
 
+//    //Many Payments per Claim
+//    @OneToMany
+//    private Payment payment;
 
     public int getId() {
         return id;
@@ -55,7 +58,4 @@ public class Payment {
         return paymentAmount;
     }
 
-    public void setPaymentAmount(double paymentAmount) {
-        this.paymentAmount = paymentAmount;
-    }
 }

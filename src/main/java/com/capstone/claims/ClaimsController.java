@@ -1,9 +1,9 @@
 package com.capstone.claims;
 
-import com.capstone.messages.Message;
-import com.capstone.messages.MessagesService;
-import com.capstone.payments.Payment;
-import com.capstone.payments.PaymentsService;
+//import com.capstone.messages.Message;
+//import com.capstone.messages.MessagesService;
+//import com.capstone.payments.Payment;
+//import com.capstone.payments.PaymentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,14 +19,14 @@ public class ClaimsController {
     @Autowired
     private final ClaimsService claimsService;
     
-    @Autowired final MessagesService messagesService;
+//    @Autowired final MessagesService messagesService;
+//
+//    @Autowired final PaymentsService paymentsService;
 
-    @Autowired final PaymentsService paymentsService;
-
-    public ClaimsController (ClaimsService claimsService, MessagesService messagesService, PaymentsService paymentsService) {
+    public ClaimsController (ClaimsService claimsService) {
         this.claimsService = claimsService;
-        this.messagesService = messagesService;
-        this.paymentsService = paymentsService;
+//        this.messagesService = messagesService;
+//        this.paymentsService = paymentsService;
     }
 
     @GetMapping
@@ -35,9 +35,8 @@ public class ClaimsController {
     }
 
     @GetMapping("/{id}")
-    public Claim getOneClaim(@PathVariable int id) {
-        Claim claim = claimsService.getOneClaim(id).orElseThrow(IllegalArgumentException::new);
-        return claim;
+    public Optional<Claim> getOneClaim(@PathVariable int id) {
+        return this.claimsService.getOneClaim(id);
     }
 
     @PostMapping
@@ -56,9 +55,9 @@ public class ClaimsController {
     }
 
     @PatchMapping
-    public Claim updateOneClaim(@RequestBody Claim updatedClaim) {
+    public Claim updateClaim(@RequestBody Claim updatedClaim) {
         Claim claim = claimsService.getOneClaim(updatedClaim.getId()).orElseThrow(IllegalArgumentException::new);
-        return claimsService.updateOneClaim(updatedClaim);
+        return this.claimsService.updateClaim(updatedClaim);
     }
 
     @DeleteMapping("/{id}")
